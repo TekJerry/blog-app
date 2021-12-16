@@ -1,5 +1,5 @@
 import db from './db/connection.js'
-// import postRoutes from './routes/posts.js'
+import postsRoutes from './routes/posts.js'
 
 import express from 'express'
 import cors from 'cors'
@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors())
 app.use(logger('dev'))
+
+app.use('/api', postsRoutes)
 
 db.on('connected', () => {
   console.log('Connected to MongoDB!')
