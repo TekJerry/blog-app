@@ -6,7 +6,7 @@ export const getPosts = async (req, res) => {
     res.json(posts)
   } catch (error) {
     console.log(error.message)
-    res.status(500).json({error: error.message})
+    res.status(500).json({ error: error.message })
   }
 }
 
@@ -17,10 +17,10 @@ export const getPost = async (req, res) => {
     if (post) {
       return res.json(product)
     }
-    res.status(404).json({ message: 'Product not found!'})
+    res.status(404).json({ message: 'Product not found!' })
   } catch (error) {
     console.log(error.message)
-    res.status(500).json({ error: error.message})
+    res.status(500).json({ error: error.message })
   }
 }
 
