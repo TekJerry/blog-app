@@ -1,4 +1,3 @@
-import Layout from '../Layout/Layout.jsx'
 import './Form.css'
 import { createPost} from '../../services/apiCall'
 import { useState } from 'react'
@@ -27,7 +26,6 @@ export default function Form() {
     }
 
     return (
-        <Layout>
             <form ClassName="creat-post" onSubmit={handleSubmit}>
                 <input 
                     className="input-author" 
@@ -69,8 +67,6 @@ export default function Form() {
                     required 
                     onChange={handleChange} 
                 />
-            </form>
-        </Layout>
-            
+            </form>            
     )
 }
