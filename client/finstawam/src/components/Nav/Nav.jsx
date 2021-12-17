@@ -9,7 +9,7 @@ export default function Nav() {
         <div className= "nav">
             <NavLink className = "logo" to='/'>Finstawam</NavLink>
             <div className="links">
-                <NavLink className="link" to="/newpost">New Post</NavLink>
+                <NavLink className="link" to="/api/posts/new">New Post</NavLink>
                 
             </div>
             
