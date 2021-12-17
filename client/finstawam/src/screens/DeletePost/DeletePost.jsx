@@ -3,7 +3,7 @@ import './DeletePost.css'
 import Layout from '../components/Layout/Layout.jsx'
 import { deletePost } from '../../services/apiCall'
 
-export default function DeletePost() {
+export default function DeletePost({ id }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
