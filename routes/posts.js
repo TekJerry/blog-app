@@ -4,7 +4,8 @@ import * as controllers from '../controllers/posts.js'
 const router = Router()
 
 router.get('/posts', controllers.getPosts)
-router.get('/posts/:id', controllers.getPosts)
+router.get('/posts/:id', controllers.getPost)
+router.post('/posts', controllers.createPost)
 
 
 export default router
