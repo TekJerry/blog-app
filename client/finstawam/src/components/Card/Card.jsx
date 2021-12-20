@@ -19,7 +19,7 @@ export default function Card({ author, title, userImg, postPic, post }) {
         </div>
         <div className="btn">
           <button>
-            <Link key={post._id} to={`/api/posts/${post._id}`}>
+            <Link key={post._id} to={`/api/post/${post._id}`}>
               <p className="view-more">View More</p>
             </Link>
           </button>
