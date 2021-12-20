@@ -2,19 +2,29 @@ import React from 'react'
 import './DeletePost.css'
 import Layout from '../../components/Layout/Layout'
 import { deletePost } from '../../services/apiCall'
-import Card from '../../components/Card/Card'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
-export default function DeletePost({ id }) {
+export default function DeletePost(props) {
+
+  const [post, setPost] = useState({})
+  const params = useParams()
+
+  useEffect(() => {
+    const foundPost = props.posts.find(post => {
+      return post._id = params.id
+    })
+    setPost(foundPost)
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    deletePost(id)
+    deletePost(post._id)
   }
 
   return (
     <Layout>
-      <Card id={id} />
-      <button onSubmit={handleSubmit}>Delete</button>
+      <button onClick={handleSubmit}>Delete</button>
     </Layout>
   )
 }
