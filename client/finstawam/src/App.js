@@ -11,7 +11,7 @@ import DeletePost from "./screens/DeletePost/DeletePost";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [toggle, setToggle] = useState(false);
+
 
   useEffect(() => {
     const grabPosts = async () => {
@@ -21,6 +21,7 @@ function App() {
     };
     grabPosts();
   }, []);
+
 
   return (
     <div className="App">
