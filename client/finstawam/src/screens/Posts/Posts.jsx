@@ -14,7 +14,7 @@ export default function Posts({posts}) {
                 userImg={post.userImg}
                 postPic={post.postPic}
                 story={post.story}
-
+                post ={post}
                 />))}
             </div>
         </div>
