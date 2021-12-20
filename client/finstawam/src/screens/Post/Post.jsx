@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 export default function Post(props) {
@@ -22,6 +22,8 @@ export default function Post(props) {
                     <h2>{post.title}</h2>
                     <h4>{post.author}</h4>
                     <p>{post.story}</p>
+                    <Link to={`/post/edit/${post._id}`}>Edit Me</Link>
+                    <Link to={`/post/delete/${post._id}`}>Delete Me</Link>
                 </>
             }
         </div>

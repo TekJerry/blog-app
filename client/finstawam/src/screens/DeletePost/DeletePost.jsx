@@ -1,13 +1,14 @@
 import React from 'react'
 import './DeletePost.css'
-import Layout from '../components/Layout/Layout.jsx'
+import Layout from '../../components/Layout/Layout'
 import { deletePost } from '../../services/apiCall'
+import Card from '../../components/Card/Card'
 
 export default function DeletePost({ id }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    await deletePost(id)
+    deletePost(id)
   }
 
   return (
