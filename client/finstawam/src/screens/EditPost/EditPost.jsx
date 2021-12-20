@@ -18,7 +18,7 @@ export default function EditPost(props) {
 
   useEffect(() => {
     const foundPost = props.posts.find(post => {
-      return post._id = params.id
+      return post._id === params.id
   })
   setPost(foundPost)
   }, [])
