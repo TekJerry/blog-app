@@ -1,10 +1,12 @@
 import React from 'react'
 import './EditPost'
-import Layout from '../components/Layout/Layout.jsx'
-import { getPost, updatePost } from '../../services/apiCall'
+import Layout from '../../components/Layout/Layout.jsx'
+import { updatePost } from '../../services/apiCall'
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
-export default function EditPost({ id }) {
+export default function EditPost(props) {
+  const params = useParams()
 
   const [post, setPost] = useState({
     author: '',
@@ -15,29 +17,35 @@ export default function EditPost({ id }) {
   })
 
   useEffect(() => {
-    const findPost = async () => {
-      const currentPost = await getPost({ id })
-      setPost(currentPost)
-    }
-    findPost()
+    const foundPost = props.posts.find(post => {
+      return post._id = params.id
+  })
+  setPost(foundPost)
   }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    await updatePost(id)
+    await updatePost(params.id, post)
+  }
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setPost({
+      ...post,
+      [name]: value
+    })
   }
 
   return (
     <Layout>
-      <Card id={id} />
-      <form ClassName="creat-post" onSubmit={handleSubmit}>
+      <form ClassName="creat-post">
                 <input 
                     className="input-author" 
                     placeholder="Author" 
                     value={post.author} 
                     name='author' 
                     required 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e)} 
                 />
                 <input 
                     className="input-title" 
@@ -45,7 +53,7 @@ export default function EditPost({ id }) {
                     value={post.title} 
                     name='title' 
                     required 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e)} 
                 />
                 <input 
                     className="input-story" 
@@ -53,7 +61,7 @@ export default function EditPost({ id }) {
                     value={post.story} 
                     name='story' 
                     required 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e)} 
                 />
                 <input 
                     className="input-userImg" 
@@ -61,7 +69,7 @@ export default function EditPost({ id }) {
                     value={post.userImg} 
                     name='userImg' 
                     required 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e)} 
                 />
                 <input 
                     className="input-postPic" 
@@ -69,10 +77,10 @@ export default function EditPost({ id }) {
                     value={post.postPic} 
                     name='postPic' 
                     required 
-                    onChange={handleChange} 
+                    onChange={(e) => handleChange(e)} 
                 />
             </form>
-      <button onSubmit={handleSubmit}>Edit Post</button>
+      <button onClick={(e) => handleSubmit(e)}>Edit Post</button>
     </Layout>      
   )
 }

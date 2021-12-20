@@ -1,5 +1,5 @@
 import "./Layout.css";
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav.jsx'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
