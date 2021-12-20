@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../Card/Card.css'
 
-export default function Card({ author, title, userImg, postPic, post }) {
+export default function Card({ author, title, userImg, postPic, post, key }) {
 
   return (
     <div>
@@ -19,7 +19,7 @@ export default function Card({ author, title, userImg, postPic, post }) {
         </div>
         <div className="btn">
           <button>
-            <Link key={post._id} to={`/api/post/${post._id}`}>
+            <Link key={post._id} to={`/api/post/${key}`}>
               <p className="view-more">View More</p>
             </Link>
           </button>
